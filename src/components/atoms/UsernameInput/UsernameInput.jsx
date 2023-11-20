@@ -1,4 +1,4 @@
-export const NameInput = () => {
+export const UsernameInput = () => {
   return (
     <input
       type="text"

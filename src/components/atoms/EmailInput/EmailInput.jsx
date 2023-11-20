@@ -1,4 +1,4 @@
-export const PassInput = () => {
+export const EmailInput = () => {
   return (
     <input
       type="email"
