@@ -1,8 +1,14 @@
+import { NavLink } from 'react-router-dom';
+
 export const AuthMenu = () => {
   return (
     <>
-      <div>Register button</div>
-      <div>Login button</div>
+      <NavLink className={css.link} to="/register">
+        Register
+      </NavLink>
+      <NavLink className={css.link} to="/login">
+        Log In
+      </NavLink>
     </>
   );
 };
