@@ -4,7 +4,7 @@ import { PassInput } from 'components/atoms/PassInput/PassInput';
 export const LoginForm = () => {
   const handleSubmit = event => {
     event.preventDefault();
-    const form = event.curretTarget;
+    const form = event.currentTarget;
     console.log(
       'Hellow ',
       form.username.value,

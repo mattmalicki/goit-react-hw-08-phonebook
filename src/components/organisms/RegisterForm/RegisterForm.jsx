@@ -5,7 +5,7 @@ import { EmailInput } from 'components/atoms/EmailInput/EmailInput';
 export const RegisterForm = () => {
   const handleSubmit = event => {
     event.preventDefault();
-    const form = event.curretTarget;
+    const form = event.currentTarget;
     console.log(
       'Hellow ',
       form.username.value,
