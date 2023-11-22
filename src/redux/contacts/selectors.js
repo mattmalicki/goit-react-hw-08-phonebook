@@ -11,18 +11,18 @@ export const selectVisibleContacts = createSelector(
     switch (filterFav) {
       case 'all':
         visibleContacts = contacts.filter(obj =>
-          obj.name.toLowerCase().includes(statusFilter)
+          obj.name.toLowerCase().includes(filterName)
         );
         break;
       case 'favourite':
         visibleContacts = contacts
           .filter(obj => obj.favourite)
-          .filter(obj => obj.name.toLowerCase().includes(statusFilter));
+          .filter(obj => obj.name.toLowerCase().includes(filterName));
         break;
       case 'nofavourtie':
         visibleContacts = contacts
           .filter(obj => !obj.favourite)
-          .filter(obj => obj.name.toLowerCase().includes(statusFilter));
+          .filter(obj => obj.name.toLowerCase().includes(filterName));
         break;
       default:
         console.log('Error with selectVisibleContacts');
