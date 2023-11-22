@@ -5,7 +5,7 @@ export const EmailInput = () => {
       name="email"
       title="Please provide correct email"
       placeholder="Your email"
-      isRequired={true}
+      required={true}
     />
   );
 };

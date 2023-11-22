@@ -4,7 +4,7 @@ export const UsernameInput = () => {
       type="text"
       name="username"
       placeholder="Your username"
-      isRequired={true}
+      required={true}
     />
   );
 };

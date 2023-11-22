@@ -6,7 +6,7 @@ export const PassInput = () => {
       pattern="*"
       title="For testing password can be whatever you like"
       placeholder="Password need to be at least 4 characters."
-      isRequired={true}
+      required={true}
     />
   );
 };
