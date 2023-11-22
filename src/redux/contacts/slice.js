@@ -23,7 +23,7 @@ const isRejectAction = action => {
   return action.type.endsWith('/rejected');
 };
 
-contactsSlice = createSlice({
+const contactsSlice = createSlice({
   name: 'contacts',
   initialState: {
     items: [],
