@@ -65,3 +65,5 @@ contactsSlice = createSlice({
       });
   },
 });
+
+export const contactsReducer = contactsSlice.reducer;
