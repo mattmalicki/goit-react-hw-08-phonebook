@@ -9,11 +9,17 @@ import { Contacts } from 'pages/Contacts/Contacts';
 export const App = () => {
   return (
     <Routes>
-      <Route path="/" element={<Layout />}>
+      <Route path="goit-react-hw-08-phonebook/" element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/contacts" element={<Contacts />} />
+        <Route
+          path="goit-react-hw-08-phonebook/register"
+          element={<Register />}
+        />
+        <Route path="goit-react-hw-08-phonebook/login" element={<Login />} />
+        <Route
+          path="goit-react-hw-08-phonebook/contacts"
+          element={<Contacts />}
+        />
       </Route>
     </Routes>
   );
