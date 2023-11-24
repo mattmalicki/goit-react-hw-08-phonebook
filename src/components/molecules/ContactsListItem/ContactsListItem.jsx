@@ -1,16 +1,16 @@
 import { DeleteButton } from 'components/atoms/DeleteButton/DeleteButton';
 import { FavButton } from 'components/atoms/FavButton/FavButton';
 
-export const ContactsListItem = ({ item }) => {
+export const ContactsListItem = ({ contact }) => {
   return (
     <li>
       <div>
-        <span> Contact name</span>
-        <span> Contact number</span>
+        <span>{contact.name}</span>
+        <span>{contact.number}</span>
       </div>
       <div>
         <DeleteButton />
-        <FavButton fav={item && true} />
+        <FavButton fav={contact.fav} />
       </div>
     </li>
   );

@@ -1,3 +1,7 @@
+import { useSelector } from 'react-redux/es/hooks/useSelector';
+
+import { selectContacts } from 'redux/contacts/selectors';
+
 import { ContactsListItem } from 'components/molecules/ContactsListItem/ContactsListItem';
 
 export const ContactsList = () => {
@@ -9,10 +13,13 @@ export const ContactsList = () => {
     { id: 5, name: 'Adolf Witler', number: '1010101010101', fav: false },
   ];
 
+  const contacts = useSelector(selectContacts);
+
   return (
     <ul>
+      {console.log(contacts)}
       {array.map(contact => (
-        <ContactsListItem key={contact.id} item={contact} />
+        <ContactsListItem key={contact.id} contact={contact} />
       ))}
     </ul>
   );
