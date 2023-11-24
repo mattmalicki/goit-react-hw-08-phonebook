@@ -1,9 +1,11 @@
 import { RegisterForm } from 'components/organisms/RegisterForm/RegisterForm';
 
-export const Register = () => {
+const Register = () => {
   return (
     <>
       <RegisterForm />
     </>
   );
 };
+
+export default Register;
