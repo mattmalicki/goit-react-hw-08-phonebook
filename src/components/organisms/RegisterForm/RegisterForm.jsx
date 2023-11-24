@@ -1,19 +1,21 @@
-import { UsernameInput } from 'components/atoms/UsernameInput/UsernameInput';
+import { useDispatch } from 'react-redux';
+import { register } from 'redux/auth/operations';
+
 import { PassInput } from 'components/atoms/PassInput/PassInput';
 import { EmailInput } from 'components/atoms/EmailInput/EmailInput';
+import { UsernameInput } from 'components/atoms/UsernameInput/UsernameInput';
 
 export const RegisterForm = () => {
+  const dispatch = useDispatch();
   const handleSubmit = event => {
     event.preventDefault();
     const form = event.currentTarget;
-    console.log(
-      'Hellow ',
-      form.username.value,
-      ' with pass ',
-      form.password.value,
-      ' and email ',
-      form.email.value,
-      '. Welcome!'
+    dispatch(
+      register({
+        name: form.username.value,
+        email: form.email.value,
+        password: form.password.value,
+      })
     );
   };
   return (
