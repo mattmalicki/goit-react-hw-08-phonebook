@@ -56,3 +56,31 @@ export const toggleFavourite = createAsyncThunk(
     }
   }
 );
+
+export const changeName = createAsyncThunk(
+  'contacts/changeName',
+  async (contact, thunkAPI) => {
+    try {
+      const response = await axios.put(`${ENDPOINT}/${contact.id}`, {
+        name: contact.name,
+      });
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+export const changeNumber = createAsyncThunk(
+  'contacts/changeNumber',
+  async (contact, thunkAPI) => {
+    try {
+      const response = await axios.put(`${ENDPOINT}/${contact.id}`, {
+        number: contact.number,
+      });
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
