@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 
 export const Navigation = () => {
   let isLoggedIn = useSelector(selectIsLoggedIn);
-  isLoggedIn = true;
   return (
     <div>
       <Link to="/">Home</Link>
