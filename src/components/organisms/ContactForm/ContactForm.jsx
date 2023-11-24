@@ -11,7 +11,8 @@ export const ContactForm = () => {
   const contacts = useSelector(selectContacts);
 
   const isInPhonebook = name => {
-    return contacts.filter(contact => contact.name === name);
+    console.log(contacts);
+    return contacts ? contacts.filter(contact => contact.name === name) : false;
   };
 
   const handleSubmit = event => {
@@ -25,7 +26,7 @@ export const ContactForm = () => {
     form.reset();
   };
   return (
-    <form onSubmit={() => handleSubmit()}>
+    <form onSubmit={handleSubmit}>
       <NameInput />
       <NumberInput />
       <button type="submit">Add contact</button>
