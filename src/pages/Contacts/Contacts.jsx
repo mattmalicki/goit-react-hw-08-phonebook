@@ -17,7 +17,7 @@ const Contacts = () => {
   return (
     <div>
       <ContactForm />
-      {contactsAmount && <Filters />}
+      {contactsAmount > 0 && <Filters />}
       <ContactsList />
     </div>
   );

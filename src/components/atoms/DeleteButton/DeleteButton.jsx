@@ -1,6 +1,6 @@
-export const DeleteButton = () => {
+export const DeleteButton = ({ onClick }) => {
   return (
-    <button type="button">
+    <button type="button" onClick={onClick}>
       <svg width="20" height="20">
         <path d={deleteIcon} />
       </svg>
