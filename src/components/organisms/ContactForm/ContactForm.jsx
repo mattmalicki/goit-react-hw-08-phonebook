@@ -11,7 +11,7 @@ export const ContactForm = () => {
   const contacts = useSelector(selectContacts);
 
   const isInPhonebook = name => {
-    return contacts.filter(contact => contact.name === name) > 0;
+    return contacts.filter(contact => contact.name === name).length >= 1;
   };
 
   const handleSubmit = event => {
