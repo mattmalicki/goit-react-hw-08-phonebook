@@ -5,7 +5,7 @@ import { selectVisibleContacts } from 'redux/contacts/selectors';
 import { ContactsListItem } from 'components/molecules/ContactsListItem/ContactsListItem';
 
 export const ContactsList = () => {
-  const contacts = useSelector(selectVisibleContacts);
+  const contacts = useSelector(selectVisibleContacts).items;
 
   return (
     <ul>
