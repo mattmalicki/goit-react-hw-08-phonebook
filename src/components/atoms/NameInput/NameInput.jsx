@@ -1,4 +1,4 @@
-export const NameInput = () => {
+export const NameInput = ({ defaultValue = '' }) => {
   return (
     <input
       type="text"
@@ -6,6 +6,7 @@ export const NameInput = () => {
       pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
       title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
       required={true}
+      defaultValue={defaultValue}
     />
   );
 };

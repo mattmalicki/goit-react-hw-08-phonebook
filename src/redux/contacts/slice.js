@@ -4,8 +4,7 @@ import {
   fetchContacts,
   deleteContact,
   toggleFavourite,
-  changeName,
-  changeNumber,
+  updateContact,
 } from './operations';
 
 const handlePending = state => {
@@ -60,21 +59,14 @@ const contactsSlice = createSlice({
         );
         state.items[index].favourite = !state.items[index].favourite;
       })
-      .addCase(changeName.fulfilled, (state, action) => {
+      .addCase(updateContact.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
         const index = state.items.findIndex(
           contact => contact.id === action.payload.id
         );
         state.items[index].name = action.payload.name;
-      })
-      .addCase(changeNumber.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.error = null;
-        const index = state.items.findIndex(
-          contact => contact.id === action.payload.id
-        );
-        state.items[index].name = action.payload.number;
+        state.items[index].number = action.payload.number;
       })
       .addMatcher(isPendingAction, handlePending)
       .addMatcher(isRejectAction, handleRejected)
