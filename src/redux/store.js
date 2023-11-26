@@ -9,7 +9,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 
 import { authReducer } from './auth/slice';
 import { contactsReducer } from './contacts/slice';
