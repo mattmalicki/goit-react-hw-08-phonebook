@@ -1,12 +1,16 @@
+import { Button } from '@chakra-ui/react';
+import { DeleteIcon } from '@chakra-ui/icons';
+
 export const DeleteButton = ({ onClick }) => {
   return (
-    <button type="button" onClick={onClick}>
-      <svg width="20" height="20">
-        <path d={deleteIcon} />
-      </svg>
-    </button>
+    <Button
+      type="button"
+      colorScheme="red"
+      color="#a70505ab"
+      variant="outline"
+      onClick={onClick}
+    >
+      <DeleteIcon />
+    </Button>
   );
 };
-
-const deleteIcon =
-  'M8 21.5v-11a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v11c0 .28.22.5.5.5h1a.5.5 0 0 0 .5-.5zm4 0v-11a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v11c0 .28.22.5.5.5h1a.5.5 0 0 0 .5-.5zm4 0v-11a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v11c0 .28.22.5.5.5h1a.5.5 0 0 0 .5-.5zM7.5 6h7l-.75-1.83a.6.6 0 0 0-.27-.17H8.53c-.1.02-.22.1-.27.17zm14.5.5v1a.5.5 0 0 1-.5.5H20v14.81c0 1.72-1.13 3.19-2.5 3.19h-13C3.12 26 2 24.6 2 22.87V8H.5a.5.5 0 0 1-.5-.5v-1c0-.28.22-.5.5-.5h4.83l1.1-2.61a2.43 2.43 0 0 1 2.07-1.4h5c.83 0 1.77.63 2.08 1.4l1.1 2.6h4.82c.28 0 .5.23.5.5z';

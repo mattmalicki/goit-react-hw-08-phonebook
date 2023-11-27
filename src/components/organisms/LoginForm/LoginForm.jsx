@@ -1,9 +1,19 @@
 import { useDispatch } from 'react-redux';
-
 import { login } from 'redux/auth/operations';
 
+import { Link } from 'react-router-dom';
+
+import { Button } from '@chakra-ui/react';
 import { PassInput } from 'components/atoms/PassInput/PassInput';
 import { EmailInput } from 'components/atoms/EmailInput/EmailInput';
+
+const formStyles = {
+  width: '50%',
+  display: 'flex',
+  flexDirection: 'column',
+  flexWrap: 'nowrap',
+  gap: '15px',
+};
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -14,10 +24,16 @@ export const LoginForm = () => {
     dispatch(login({ email: form.email.value, password: form.password.value }));
   };
   return (
-    <form name="login" onSubmit={handleSubmit}>
+    <form name="login" style={formStyles} onSubmit={handleSubmit}>
+      <h2>Login:</h2>
       <EmailInput />
       <PassInput />
-      <button type="submit">Login</button>
+      <Button type="submit" colorScheme="teal" variant="outline">
+        Login
+      </Button>
+      <Button type="button" colorScheme="teal" variant="outline">
+        <Link to="/register">or Register</Link>
+      </Button>
     </form>
   );
 };

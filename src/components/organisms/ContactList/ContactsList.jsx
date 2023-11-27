@@ -5,6 +5,21 @@ import { selectVisibleContacts } from 'redux/contacts/selectors';
 
 import { ContactsListItem } from 'components/molecules/ContactsListItem/ContactsListItem';
 
+const listStyles = {
+  width: '100%',
+  display: 'flex',
+  flexDirection: 'column',
+  flexWrap: 'nowrap',
+  justifyContent: 'center',
+  alignItems: 'center',
+  gap: '5px',
+  listStyle: 'none',
+  padding: '5px',
+  border: '1px solid black',
+  borderRadius: '5px',
+  backgroundColor: 'rgba(206, 229, 210, 0.43)',
+};
+
 export const ContactsList = () => {
   const contacts = useSelector(selectVisibleContacts).items;
   const [expandId, setExpandId] = useState('');
@@ -17,7 +32,7 @@ export const ContactsList = () => {
     setExpandId(liElement.id);
   };
   return (
-    <ul onClick={handleClick}>
+    <ul style={listStyles} onClick={handleClick}>
       {contacts.map(contact => (
         <ContactsListItem
           key={contact.id}

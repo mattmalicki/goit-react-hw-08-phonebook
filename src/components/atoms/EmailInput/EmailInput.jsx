@@ -1,11 +1,20 @@
+import { EmailIcon } from '@chakra-ui/icons';
+import { Input, InputGroup, InputLeftElement } from '@chakra-ui/react';
+
 export const EmailInput = () => {
   return (
-    <input
-      type="email"
-      name="email"
-      title="Please provide correct email"
-      placeholder="Your email"
-      required={true}
-    />
+    <InputGroup>
+      <InputLeftElement>
+        <EmailIcon />
+      </InputLeftElement>
+      <Input
+        type="email"
+        name="email"
+        variant="outline"
+        placeholder="Your email"
+        required={true}
+        focusBorderColor="teal.400"
+      />
+    </InputGroup>
   );
 };

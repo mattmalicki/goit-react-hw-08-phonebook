@@ -1,11 +1,40 @@
+import { useState } from 'react';
+
+import { LockIcon, ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
+import {
+  Button,
+  Input,
+  InputGroup,
+  InputLeftElement,
+  InputRightElement,
+} from '@chakra-ui/react';
+
 export const PassInput = () => {
+  const [show, setShow] = useState(false);
+  const handleClick = () => setShow(!show);
   return (
-    <input
-      type="password"
-      name="password"
-      title="For testing password can be whatever you like"
-      placeholder="Password need to be at least 4 characters."
-      required={true}
-    />
+    <InputGroup _focusWithin={{ color: 'teal' }}>
+      <InputLeftElement>
+        <LockIcon />
+      </InputLeftElement>
+      <Input
+        type={show ? 'text' : 'password'}
+        name="password"
+        placeholder="Password need to be at least 7 characters long."
+        required={true}
+        focusBorderColor="teal.400"
+      />
+      <InputRightElement width="4.5rem">
+        <Button
+          h="1.75rem"
+          size="sm"
+          variant="ghost"
+          colorScheme="inherit"
+          onClick={handleClick}
+        >
+          {show ? <ViewOffIcon /> : <ViewIcon />}
+        </Button>
+      </InputRightElement>
+    </InputGroup>
   );
 };
