@@ -45,7 +45,7 @@ export const RegisterForm = () => {
       <Button type="submit" colorScheme="teal" variant="outline">
         Register
       </Button>
-      <Button type="button" colorScheme="teal" variant="ghost">
+      <Button type="button" colorScheme="teal" variant="link">
         <Link to="/login">or Login</Link>
       </Button>
     </form>
