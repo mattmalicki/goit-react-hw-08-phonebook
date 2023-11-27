@@ -10,13 +10,13 @@ export const Navigation = () => {
   return (
     <Breadcrumb>
       <BreadcrumbItem>
-        <BreadcrumbLink as={Link} to="/goit-react-hw-08-phonebook">
+        <BreadcrumbLink as={Link} to="/goit-react-hw-08-phonebook/">
           Home
         </BreadcrumbLink>
       </BreadcrumbItem>
       {isLoggedIn && (
         <BreadcrumbItem>
-          <BreadcrumbLink as={Link} to="goit-react-hw-08-phonebook/contacts">
+          <BreadcrumbLink as={Link} to="/goit-react-hw-08-phonebook/contacts">
             Contacts
           </BreadcrumbLink>
         </BreadcrumbItem>
