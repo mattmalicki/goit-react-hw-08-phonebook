@@ -14,7 +14,14 @@ const formStyles = {
   flexDirection: 'column',
   flexWrap: 'nowrap',
   gap: '15px',
+  padding: '5px',
+  border: '1px solid black',
+  borderTop: '0',
+  borderRadius: '0 0 5px 5px',
+  marginTop: '-10px',
 };
+
+// backgroundColor: 'rgba(182, 220, 174, 0.66)',
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -38,7 +45,7 @@ export const RegisterForm = () => {
       <Button type="submit" colorScheme="teal" variant="outline">
         Register
       </Button>
-      <Button type="button" colorScheme="teal" variant="outline">
+      <Button type="button" colorScheme="teal" variant="ghost">
         <Link to="/login">or Login</Link>
       </Button>
     </form>

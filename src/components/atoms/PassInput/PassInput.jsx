@@ -20,7 +20,7 @@ export const PassInput = () => {
       <Input
         type={show ? 'text' : 'password'}
         name="password"
-        placeholder="Password need to be at least 7 characters long."
+        placeholder="Password"
         required={true}
         focusBorderColor="teal.400"
       />

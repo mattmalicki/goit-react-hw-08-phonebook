@@ -3,7 +3,7 @@ import { Input, InputGroup, InputLeftElement } from '@chakra-ui/react';
 
 export const EmailInput = () => {
   return (
-    <InputGroup>
+    <InputGroup _focusWithin={{ color: 'teal' }}>
       <InputLeftElement>
         <EmailIcon />
       </InputLeftElement>

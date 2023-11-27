@@ -13,6 +13,11 @@ const formStyles = {
   flexDirection: 'column',
   flexWrap: 'nowrap',
   gap: '15px',
+  padding: '5px',
+  border: '1px solid black',
+  borderTop: '0',
+  borderRadius: '0 0 5px 5px',
+  marginTop: '-10px',
 };
 
 export const LoginForm = () => {
@@ -31,7 +36,7 @@ export const LoginForm = () => {
       <Button type="submit" colorScheme="teal" variant="outline">
         Login
       </Button>
-      <Button type="button" colorScheme="teal" variant="outline">
+      <Button type="button" colorScheme="teal" variant="link">
         <Link to="/register">or Register</Link>
       </Button>
     </form>

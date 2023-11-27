@@ -3,7 +3,7 @@ import { Input, InputGroup, InputLeftElement } from '@chakra-ui/react';
 
 export const UsernameInput = () => {
   return (
-    <InputGroup>
+    <InputGroup _focusWithin={{ color: 'teal' }}>
       <InputLeftElement>
         <InfoIcon />
       </InputLeftElement>
