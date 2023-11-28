@@ -3,13 +3,18 @@ import { register } from 'redux/auth/operations';
 
 import { Link } from 'react-router-dom';
 
+import { useAuth } from 'hooks';
+
 import { Button } from '@chakra-ui/react';
+import { SpinnerIcon } from '@chakra-ui/icons';
 import { PassInput } from 'components/atoms/PassInput/PassInput';
 import { EmailInput } from 'components/atoms/EmailInput/EmailInput';
 import { UsernameInput } from 'components/atoms/UsernameInput/UsernameInput';
 
 const formStyles = {
-  width: '50%',
+  width: '100%',
+  maxWidth: '500px',
+  alignSelf: 'right',
   display: 'flex',
   flexDirection: 'column',
   flexWrap: 'nowrap',
@@ -25,6 +30,7 @@ const formStyles = {
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
+  const { isRefreshing } = useAuth();
   const handleSubmit = event => {
     event.preventDefault();
     const form = event.currentTarget;
@@ -37,17 +43,19 @@ export const RegisterForm = () => {
     );
   };
   return (
-    <form name="register" style={formStyles} onSubmit={handleSubmit}>
-      <h2>Register:</h2>
-      <EmailInput />
-      <UsernameInput />
-      <PassInput />
-      <Button type="submit" colorScheme="teal" variant="outline">
-        Register
-      </Button>
-      <Button type="button" colorScheme="teal" variant="link">
-        <Link to="/login">or Login</Link>
-      </Button>
-    </form>
+    <div style={{ width: '100%', display: 'flex', justifyContent: 'right' }}>
+      <form name="register" style={formStyles} onSubmit={handleSubmit}>
+        <h2>Register:</h2>
+        <EmailInput />
+        <UsernameInput />
+        <PassInput />
+        <Button type="submit" colorScheme="teal" variant="outline">
+          {isRefreshing ? <SpinnerIcon /> : 'Register'}
+        </Button>
+        <Button type="button" colorScheme="teal" variant="link">
+          <Link to="/login">or Login</Link>
+        </Button>
+      </form>
+    </div>
   );
 };

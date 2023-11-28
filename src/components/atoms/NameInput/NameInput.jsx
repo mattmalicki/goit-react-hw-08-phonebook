@@ -17,6 +17,8 @@ export const NameInput = ({ defaultValue = '' }) => {
         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
         required={true}
         defaultValue={defaultValue}
+        borderColor="black"
+        _hover={{ borderColor: 'grey' }}
       />
     </InputGroup>
   );
