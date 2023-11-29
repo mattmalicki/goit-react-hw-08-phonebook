@@ -69,10 +69,7 @@ const contactsSlice = createSlice({
         state.items[index].number = action.payload.number;
       })
       .addMatcher(isPendingAction, handlePending)
-      .addMatcher(isRejectAction, handleRejected)
-      .addDefaultCase((state, action) => {
-        state.error = 'someone use old function, fix it!';
-      });
+      .addMatcher(isRejectAction, handleRejected);
   },
 });
 

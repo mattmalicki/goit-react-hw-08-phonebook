@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 
 import { selectVisibleContacts } from 'redux/contacts/selectors';
 
+import { Message } from 'components/atoms/Message/Message';
 import { ContactsListItem } from 'components/molecules/ContactsListItem/ContactsListItem';
 
 const listStyles = {
@@ -31,15 +32,26 @@ export const ContactsList = () => {
     }
     setExpandId(liElement.id);
   };
+  useEffect(() => {
+    if (expandId) {
+      window.addEventListener('click', event => {
+        !event.target.closest('li') && setExpandId('');
+      });
+    }
+  }, [expandId]);
   return (
     <ul style={listStyles} onClick={handleClick}>
-      {contacts.map(contact => (
-        <ContactsListItem
-          key={contact.id}
-          contact={contact}
-          expand={expandId === contact.id}
-        />
-      ))}
+      {contacts.length === 0 ? (
+        <Message message="Seems like there isn't a single one contact with your querry." />
+      ) : (
+        contacts.map(contact => (
+          <ContactsListItem
+            key={contact.id}
+            contact={contact}
+            expand={expandId === contact.id}
+          />
+        ))
+      )}
     </ul>
   );
 };

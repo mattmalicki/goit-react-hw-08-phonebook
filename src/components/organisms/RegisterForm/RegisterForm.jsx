@@ -3,28 +3,29 @@ import { register } from 'redux/auth/operations';
 
 import { Link } from 'react-router-dom';
 
+import { useAuth } from 'hooks';
+
 import { Button } from '@chakra-ui/react';
+import { SpinnerIcon } from '@chakra-ui/icons';
 import { PassInput } from 'components/atoms/PassInput/PassInput';
 import { EmailInput } from 'components/atoms/EmailInput/EmailInput';
 import { UsernameInput } from 'components/atoms/UsernameInput/UsernameInput';
 
 const formStyles = {
-  width: '50%',
+  width: '100%',
+  maxWidth: '500px',
   display: 'flex',
   flexDirection: 'column',
   flexWrap: 'nowrap',
   gap: '15px',
   padding: '5px',
   border: '1px solid black',
-  borderTop: '0',
-  borderRadius: '0 0 5px 5px',
-  marginTop: '-10px',
+  borderRadius: '5px',
 };
-
-// backgroundColor: 'rgba(182, 220, 174, 0.66)',
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
+  const { isRefreshing } = useAuth();
   const handleSubmit = event => {
     event.preventDefault();
     const form = event.currentTarget;
@@ -36,6 +37,7 @@ export const RegisterForm = () => {
       })
     );
   };
+
   return (
     <form name="register" style={formStyles} onSubmit={handleSubmit}>
       <h2>Register:</h2>
@@ -43,10 +45,10 @@ export const RegisterForm = () => {
       <UsernameInput />
       <PassInput />
       <Button type="submit" colorScheme="teal" variant="outline">
-        Register
+        {isRefreshing ? <SpinnerIcon /> : 'Register'}
       </Button>
       <Button type="button" colorScheme="teal" variant="link">
-        <Link to="/login">or Login</Link>
+        <Link to="/goit-react-hw-08-phonebook/login">or Login</Link>
       </Button>
     </form>
   );

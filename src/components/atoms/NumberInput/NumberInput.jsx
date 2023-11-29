@@ -17,6 +17,8 @@ export const NumberInput = ({ defaultValue = '' }) => {
         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
         required={true}
         defaultValue={defaultValue}
+        borderColor="black"
+        _hover={{ borderColor: 'grey' }}
       />
     </InputGroup>
   );

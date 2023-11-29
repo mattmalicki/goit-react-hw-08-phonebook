@@ -11,6 +11,7 @@ export const UsernameInput = () => {
         type="text"
         name="username"
         placeholder="Your username"
+        title="You need to enter your name or username."
         required={true}
         focusBorderColor="teal.400"
       />
