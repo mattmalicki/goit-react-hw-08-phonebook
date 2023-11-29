@@ -18,9 +18,7 @@ const formStyles = {
   gap: '15px',
   padding: '5px',
   border: '1px solid black',
-  borderTop: '0',
-  borderRadius: '0 0 5px 5px',
-  marginTop: '-10px',
+  borderRadius: '5px',
 };
 
 export const LoginForm = () => {
@@ -33,18 +31,16 @@ export const LoginForm = () => {
     dispatch(login({ email: form.email.value, password: form.password.value }));
   };
   return (
-    <div style={{ width: '100%', display: 'flex', justifyContent: 'right' }}>
-      <form name="login" style={formStyles} onSubmit={handleSubmit}>
-        <h2>Login:</h2>
-        <EmailInput />
-        <PassInput />
-        <Button type="submit" colorScheme="teal" variant="outline">
-          {isRefreshing ? <SpinnerIcon /> : 'Login'}
-        </Button>
-        <Button type="button" colorScheme="teal" variant="link">
-          <Link to="/register">or Register</Link>
-        </Button>
-      </form>
-    </div>
+    <form name="login" style={formStyles} onSubmit={handleSubmit}>
+      <h2>Login:</h2>
+      <EmailInput />
+      <PassInput />
+      <Button type="submit" colorScheme="teal" variant="outline">
+        {isRefreshing ? <SpinnerIcon /> : 'Login'}
+      </Button>
+      <Button type="button" colorScheme="teal" variant="link">
+        <Link to="/goit-react-hw-08-phonebook/register">or Register</Link>
+      </Button>
+    </form>
   );
 };

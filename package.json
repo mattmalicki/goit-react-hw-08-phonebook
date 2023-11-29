@@ -12,6 +12,7 @@
     "axios": "^1.6.2",
     "eslint-config-react-app": "^7.0.1",
     "framer-motion": "^10.16.5",
+    "notiflix": "^3.2.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",

@@ -14,19 +14,14 @@ import { UsernameInput } from 'components/atoms/UsernameInput/UsernameInput';
 const formStyles = {
   width: '100%',
   maxWidth: '500px',
-  alignSelf: 'right',
   display: 'flex',
   flexDirection: 'column',
   flexWrap: 'nowrap',
   gap: '15px',
   padding: '5px',
   border: '1px solid black',
-  borderTop: '0',
-  borderRadius: '0 0 5px 5px',
-  marginTop: '-10px',
+  borderRadius: '5px',
 };
-
-// backgroundColor: 'rgba(182, 220, 174, 0.66)',
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -42,20 +37,19 @@ export const RegisterForm = () => {
       })
     );
   };
+
   return (
-    <div style={{ width: '100%', display: 'flex', justifyContent: 'right' }}>
-      <form name="register" style={formStyles} onSubmit={handleSubmit}>
-        <h2>Register:</h2>
-        <EmailInput />
-        <UsernameInput />
-        <PassInput />
-        <Button type="submit" colorScheme="teal" variant="outline">
-          {isRefreshing ? <SpinnerIcon /> : 'Register'}
-        </Button>
-        <Button type="button" colorScheme="teal" variant="link">
-          <Link to="/login">or Login</Link>
-        </Button>
-      </form>
-    </div>
+    <form name="register" style={formStyles} onSubmit={handleSubmit}>
+      <h2>Register:</h2>
+      <EmailInput />
+      <UsernameInput />
+      <PassInput />
+      <Button type="submit" colorScheme="teal" variant="outline">
+        {isRefreshing ? <SpinnerIcon /> : 'Register'}
+      </Button>
+      <Button type="button" colorScheme="teal" variant="link">
+        <Link to="/goit-react-hw-08-phonebook/login">or Login</Link>
+      </Button>
+    </form>
   );
 };
