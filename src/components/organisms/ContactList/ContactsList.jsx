@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 
 import { selectVisibleContacts } from 'redux/contacts/selectors';
@@ -32,6 +32,13 @@ export const ContactsList = () => {
     }
     setExpandId(liElement.id);
   };
+  useEffect(() => {
+    if (expandId) {
+      window.addEventListener('click', event => {
+        !event.target.closest('li') && setExpandId('');
+      });
+    }
+  }, [expandId]);
   return (
     <ul style={listStyles} onClick={handleClick}>
       {contacts.length === 0 ? (
