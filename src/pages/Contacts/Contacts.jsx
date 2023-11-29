@@ -10,6 +10,7 @@ import {
 
 import { Loader } from 'components/atoms/Loader/Loader';
 import { Filters } from 'components/organisms/Filters/Filters';
+import { Message } from 'components/atoms/Message/Message';
 import { ContactForm } from 'components/organisms/ContactForm/ContactForm';
 import { ContactsList } from 'components/organisms/ContactList/ContactsList';
 
@@ -29,7 +30,11 @@ const Contacts = () => {
         <>
           <ContactForm />
           {contactsAmount > 0 && <Filters />}
-          <ContactsList />
+          {contactsAmount.length === 0 ? (
+            <Message message="You have no contacts in your phonebook. Add some!" />
+          ) : (
+            <ContactsList />
+          )}
         </>
       )}
     </div>
