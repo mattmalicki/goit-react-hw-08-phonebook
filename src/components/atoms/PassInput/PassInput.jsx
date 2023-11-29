@@ -23,6 +23,7 @@ export const PassInput = () => {
         placeholder="Password"
         required={true}
         focusBorderColor="teal.400"
+        minLength="7"
       />
       <InputRightElement width="4.5rem">
         <Button
