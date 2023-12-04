@@ -11,7 +11,7 @@ const initialState = {
 };
 
 const isPendingAction = action => {
-  return action.type.endsWith('/pending');
+  return action.type.startsWith('auth') && action.type.endsWith('/pending');
 };
 
 const isRejectAction = action => {
@@ -20,6 +20,7 @@ const isRejectAction = action => {
 
 const handlePending = state => {
   state.isRefreshing = true;
+  state.error = null;
 };
 
 const handleRejected = (state, action) => {
@@ -61,12 +62,6 @@ const authSlice = createSlice({
         state.isLoggedIn = true;
         state.isRefreshing = false;
         state.error = false;
-      })
-      .addCase(refresh.pending, state => {
-        state.isRefreshing = true;
-      })
-      .addCase(refresh.rejected, state => {
-        state.isRefreshing = false;
       })
       .addMatcher(isPendingAction, handlePending)
       .addMatcher(isRejectAction, handleRejected);

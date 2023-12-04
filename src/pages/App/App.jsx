@@ -8,6 +8,7 @@ import { refresh } from 'redux/auth/operations';
 import { Layout } from 'pages/Layout/Layout';
 import { PrivateRoute } from 'components/organisms/PrivateRoute/PrivateRoute';
 import { RestrictedRoute } from 'components/organisms/RestrictedRoute/RestrictedRoute';
+import { useToast } from '@chakra-ui/react';
 
 const HomePage = lazy(() => import('pages/Home/Home'));
 const LoginPage = lazy(() => import('pages/Login/Login'));
@@ -16,13 +17,56 @@ const ContactsPage = lazy(() => import('pages/Contacts/Contacts'));
 
 export const App = () => {
   const dispatch = useDispatch();
-  const { iseRefreshing } = useAuth();
+  const { isRefreshing, isLoggedIn, error } = useAuth();
+  const toast = useToast();
 
   useEffect(() => {
     dispatch(refresh());
   }, [dispatch]);
 
-  return iseRefreshing ? (
+  useEffect(() => {
+    toast.closeAll();
+    isRefreshing &&
+      setTimeout(() => {
+        toast({
+          title: 'Loading',
+          description: 'Please wait.',
+          status: 'loading',
+          duration: 1500,
+          isClosable: true,
+        });
+      }, 100);
+  }, [isRefreshing, toast]);
+
+  useEffect(() => {
+    toast.closeAll();
+    error &&
+      setTimeout(() => {
+        toast({
+          title: 'Error',
+          description: error,
+          status: 'error',
+          duration: 1500,
+          isClosable: true,
+        });
+      }, 100);
+  }, [error, toast]);
+
+  useEffect(() => {
+    toast.closeAll();
+    isLoggedIn &&
+      setTimeout(() => {
+        toast({
+          title: 'Success',
+          description: 'All good.',
+          status: 'success',
+          duration: 1500,
+          isClosable: true,
+        });
+      }, 100);
+  }, [isLoggedIn, toast]);
+
+  return isRefreshing ? (
     <b>Refreshing...</b>
   ) : (
     <Routes>

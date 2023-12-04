@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { useAuth } from 'hooks';
 import { fetchContacts } from 'redux/contacts/operations';
 import {
   selectVisibleContacts,
@@ -16,6 +17,7 @@ import { ContactsList } from 'components/organisms/ContactList/ContactsList';
 
 const Contacts = () => {
   const dispatch = useDispatch();
+  const { isRefreshing } = useAuth();
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
   const contactsAmount = useSelector(selectVisibleContacts).inPhonebook;
@@ -24,14 +26,16 @@ const Contacts = () => {
   }, [dispatch]);
   return (
     <div>
-      {isLoading && <Loader />}
+      {isRefreshing && <Loader />}
       {error && <p>{error}</p>}
-      {!error && !isLoading && (
+      {!error && (
         <>
           <ContactForm />
           {contactsAmount > 0 && <Filters />}
           {contactsAmount.length === 0 ? (
             <Message message="You have no contacts in your phonebook. Add some!" />
+          ) : isLoading ? (
+            <Loader />
           ) : (
             <ContactsList />
           )}
