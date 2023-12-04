@@ -3,7 +3,6 @@ import {
   addContact,
   fetchContacts,
   deleteContact,
-  toggleFavourite,
   updateContact,
 } from './operations';
 
@@ -50,14 +49,6 @@ const contactsSlice = createSlice({
           contact => contact.id === action.payload
         );
         state.items.splice(index, 1);
-      })
-      .addCase(toggleFavourite.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.error = null;
-        const index = state.items.findIndex(
-          contact => contact.id === action.payload.id
-        );
-        state.items[index].favourite = !state.items[index].favourite;
       })
       .addCase(updateContact.fulfilled, (state, action) => {
         state.isLoading = false;

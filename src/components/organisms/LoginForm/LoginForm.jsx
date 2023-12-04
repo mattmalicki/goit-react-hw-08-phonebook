@@ -30,6 +30,7 @@ export const LoginForm = () => {
     const form = event.currentTarget;
     dispatch(login({ email: form.email.value, password: form.password.value }));
   };
+
   return (
     <form name="login" style={formStyles} onSubmit={handleSubmit}>
       <h2>Login:</h2>

@@ -6,7 +6,7 @@ axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 const ENDPOINT_REGISTER = process.env.REACT_APP_REGISTER;
 const ENDPOINT_LOGIN = process.env.REACT_APP_LOGIN;
 const ENDPOINT_LOGOUT = process.env.REACT_APP_LOGOUT;
-const ENDPOINT_CURRENT = process.env.REACT_APP_CURREND;
+const ENDPOINT_CURRENT = process.env.REACT_APP_CURRENT;
 
 const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -56,6 +56,7 @@ export const refresh = createAsyncThunk('auth/refresh', async (_, thunkAPI) => {
   const persistedToken = state.auth.token;
 
   if (persistedToken === null) {
+    console.log('If is correct ', persistedToken);
     return thunkAPI.rejectWithValue('Unable to fetch user');
   }
 

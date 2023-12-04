@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 import { useAuth } from 'hooks';
 
-import { Button } from '@chakra-ui/react';
+import { Button, useToast } from '@chakra-ui/react';
 import { SpinnerIcon } from '@chakra-ui/icons';
 import { PassInput } from 'components/atoms/PassInput/PassInput';
 import { EmailInput } from 'components/atoms/EmailInput/EmailInput';
@@ -25,16 +25,25 @@ const formStyles = {
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
-  const { isRefreshing } = useAuth();
+  const { isRefreshing, error } = useAuth();
+  const toast = useToast();
+
   const handleSubmit = event => {
     event.preventDefault();
     const form = event.currentTarget;
-    dispatch(
-      register({
-        name: form.username.value,
-        email: form.email.value,
-        password: form.password.value,
-      })
+    toast.promise(
+      dispatch(
+        register({
+          name: form.username.value,
+          email: form.email.value,
+          password: form.password.value,
+        })
+      ),
+      {
+        success: { title: 'Hurray!', description: 'Account created' },
+        error: { title: 'Error', description: error },
+        loading: { title: 'Registering', description: 'Creating an account' },
+      }
     );
   };
 
