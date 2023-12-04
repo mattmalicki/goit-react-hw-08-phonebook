@@ -11,7 +11,7 @@ const initialState = {
 };
 
 const isPendingAction = action => {
-  return action.type.endsWith('auth/pending');
+  return action.type.startsWith('auth') && action.type.endsWith('/pending');
 };
 
 const isRejectAction = action => {
