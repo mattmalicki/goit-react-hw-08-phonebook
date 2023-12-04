@@ -27,38 +27,43 @@ export const App = () => {
   useEffect(() => {
     toast.closeAll();
     isRefreshing &&
-      toast({
-        title: 'Loading',
-        description: 'Please wait.',
-        status: 'loading',
-        duration: 3000,
-        isClosable: true,
-      });
+      setTimeout(() => {
+        toast({
+          title: 'Loading',
+          description: 'Please wait.',
+          status: 'loading',
+          duration: 1500,
+          isClosable: true,
+        });
+      }, 100);
   }, [isRefreshing, toast]);
 
   useEffect(() => {
     toast.closeAll();
-
     error &&
-      toast({
-        title: 'Error',
-        description: error,
-        status: 'error',
-        duration: 3000,
-        isClosable: true,
-      });
+      setTimeout(() => {
+        toast({
+          title: 'Error',
+          description: error,
+          status: 'error',
+          duration: 1500,
+          isClosable: true,
+        });
+      }, 100);
   }, [error, toast]);
 
   useEffect(() => {
     toast.closeAll();
     isLoggedIn &&
-      toast({
-        title: 'Success',
-        description: 'All good.',
-        status: 'success',
-        duration: 3000,
-        isClosable: true,
-      });
+      setTimeout(() => {
+        toast({
+          title: 'Success',
+          description: 'All good.',
+          status: 'success',
+          duration: 1500,
+          isClosable: true,
+        });
+      }, 100);
   }, [isLoggedIn, toast]);
 
   return isRefreshing ? (
