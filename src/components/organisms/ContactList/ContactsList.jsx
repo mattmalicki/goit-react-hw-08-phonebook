@@ -26,7 +26,6 @@ export const ContactsList = () => {
   const [expandId, setExpandId] = useState('');
   const handleClick = event => {
     const liElement = event.target.closest('li');
-    console.log(liElement);
     if (event.target.nodeName === 'UL') {
       setExpandId('');
       return;
@@ -35,7 +34,6 @@ export const ContactsList = () => {
   };
 
   const windowClick = event => {
-    console.log(event.target.closest('li'));
     !event.target.closest('li') && setExpandId('');
   };
 
