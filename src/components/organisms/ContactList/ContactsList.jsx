@@ -26,18 +26,28 @@ export const ContactsList = () => {
   const [expandId, setExpandId] = useState('');
   const handleClick = event => {
     const liElement = event.target.closest('li');
+    console.log(liElement);
     if (event.target.nodeName === 'UL') {
       setExpandId('');
       return;
     }
     setExpandId(liElement.id);
   };
+
+  const windowClick = event => {
+    console.log(event.target.closest('li'));
+    !event.target.closest('li') && setExpandId('');
+  };
+
   useEffect(() => {
-    if (expandId) {
-      window.addEventListener('click', event => {
-        !event.target.closest('li') && setExpandId('');
-      });
-    }
+    setTimeout(() => {
+      if (expandId) {
+        window.addEventListener('click', windowClick);
+      }
+    }, 1000);
+    return () => {
+      window.removeEventListener('click', windowClick);
+    };
   }, [expandId]);
   return (
     <ul style={listStyles} onClick={handleClick}>
