@@ -18,7 +18,10 @@ jobs:
           npm run build
         env:
           REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
-          REACT_APP_USER_ENDPOINT: ${{ secrets.REACT_APP_USER_ENDPOINT }}
+          REACT_APP_REGISTER: ${{ secrets.REACT_APP_REGISTER }}
+          REACT_APP_LOGIN: ${{ secrets.REACT_APP_LOGIN }}
+          REACT_APP_LOGOUT: ${{ secrets.REACT_APP_LOGOUT }}
+          REACT_APP_CURRENT: ${{ secrets.REACT_APP_CURRENT }}
           REACT_APP_USER_CONTACTS_ENDPOINT:
             ${{ secrets.REACT_APP_USER_CONTACTS_ENDPOINT }}
 
